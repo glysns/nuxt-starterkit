@@ -10,3 +10,7 @@ cd <project-name-folder>
 npm install
 
 npm run dev
+
+http://localhost:3000/
+
+DevTools: Shift + Alt + D
