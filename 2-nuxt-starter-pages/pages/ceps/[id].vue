@@ -13,9 +13,9 @@
             {{ cep }}
         </p>
 
-        <h2>Variavel mapeada do useState - cep</h2>
+        <h2>Evento obtido pelo useReservaService - cep</h2>
         <p>
-            {{ item }}
+            {{ reserva }}
         </p>
     </div>
 </template>
@@ -24,7 +24,7 @@
 
 import {ref} from 'vue';
 
-const {item} = useReserva();
+const {ireservatem} = useReservaService();
 
 const cepsApi = [{ id: 64000040, logradouro: 'Rua das flores' }, { id: 64000128, logradouro: 'Avenida 7 de Setembro' }]
 

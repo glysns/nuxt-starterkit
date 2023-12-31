@@ -9,13 +9,12 @@
         </ul>
 
         <ul><li v-for="i in cepsObjects">
-            <NuxtLink :to="`/ceps/${i.id}`" @click="sel(i)">
+            <NuxtLink :to="`/ceps/${i.id}`" @click="selecionar(i)">
                 {{ i.cep }} - {{ i  .logradouro }}
             </NuxtLink>
         </li>
             </ul>
-        <button @click.prevent="ss()" >Sel</button>
-        {{ item }}
+       
         <!-- 
             <nuxt-link :to="{ path: 'test', query: {a: 1, b: 2}}">Test Page</nuxt-link>
 
@@ -56,13 +55,10 @@
 
     ]
 
-    const {selecionar, item} = useReserva();
-    const sel = (el) => {
-        selecionar(el);
+    const {selecionarEvento} = useReservaService();
+    const selecionar = (evento) => {
+        selecionarEvento(evento);
     }
-    let n = 0;
-    const ss = () =>{
-        item.value = cepsObjects[n++]
-    }
+    
 </script>
   
