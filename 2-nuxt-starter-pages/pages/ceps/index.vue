@@ -8,9 +8,12 @@
             <li v-for="cep in ceps"><a :href="`/ceps/${cep}`">{{ cep }}</a> </li>
         </ul>
 
-        <ul>
-            <li v-for="i in cepsObjects"><a :href="`/ceps/${i.id}`" @click="sel(i)">{{ i.cep }} - {{ i  .logradouro }}</a> </li>
-        </ul>
+        <ul><li v-for="i in cepsObjects">
+            <NuxtLink :to="`/ceps/${i.id}`" @click="sel(i)">
+                {{ i.cep }} - {{ i  .logradouro }}
+            </NuxtLink>
+        </li>
+            </ul>
         <button @click.prevent="ss()" >Sel</button>
         {{ item }}
         <!-- 
