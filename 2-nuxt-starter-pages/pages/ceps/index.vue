@@ -9,8 +9,14 @@
         </ul>
 
         <ul>
-            <li v-for="i in cepsObjects"><a :href="`/ceps/${i.id}`">{{ i.cep }} - {{ i  .logradouro }}</a> </li>
+            <li v-for="i in cepsObjects"><a :href="`/ceps/${i.id}`" @click="sel(i)">{{ i.cep }} - {{ i  .logradouro }}</a> </li>
         </ul>
+        <button @click.prevent="ss()" >Sel</button>
+        {{ item }}
+        <!-- 
+            <nuxt-link :to="{ path: 'test', query: {a: 1, b: 2}}">Test Page</nuxt-link>
+
+        -->
     </div>
 </template>
 <script setup>
@@ -46,5 +52,14 @@
 }
 
     ]
+
+    const {selecionar, item} = useReserva();
+    const sel = (el) => {
+        selecionar(el);
+    }
+    let n = 0;
+    const ss = () =>{
+        item.value = cepsObjects[n++]
+    }
 </script>
   
