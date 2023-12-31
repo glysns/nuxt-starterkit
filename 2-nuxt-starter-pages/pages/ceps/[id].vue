@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2><a :href="`/ceps`">Voltar</a></h2>
+        <h2><NuxtLink to="/ceps"> Voltar </NuxtLink></h2>
         <h1>/pages/ceps/index.vue</h1>
         <h2>CEP Escolhido: {{ $route.params.id }}</h2>
         <h2>Variavel cepEscolhido</h2>
