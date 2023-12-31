@@ -15,7 +15,7 @@
 
         <h2>Evento obtido pelo useReservaService - cep</h2>
         <p>
-            {{ reserva }}
+            {{ evento }}
         </p>
     </div>
 </template>
@@ -24,7 +24,7 @@
 
 import {ref} from 'vue';
 
-const {ireservatem} = useReservaService();
+const {evento} = useReservaService();
 
 const cepsApi = [{ id: 64000040, logradouro: 'Rua das flores' }, { id: 64000128, logradouro: 'Avenida 7 de Setembro' }]
 
