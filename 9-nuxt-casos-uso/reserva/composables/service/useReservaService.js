@@ -1,6 +1,6 @@
 export const useReservaService = () => {
     const evento = useState('evento',()=>{})
-    const {createReserva} = usePublicApi();
+    const {createReserva, waiting} = usePublicApi();
 
     const selecionarEvento = object => evento.value = object;
     
@@ -30,5 +30,5 @@ export const useReservaService = () => {
           return await createReserva(payload)
     }
     
-    return {evento,selecionarEvento, confirmarReserva}
+    return {evento,selecionarEvento, confirmarReserva, waiting}
 }
