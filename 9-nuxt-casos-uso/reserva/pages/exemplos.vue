@@ -82,8 +82,9 @@ const chamarApiViaCep = async () => {
 const eventos = ref ([])
 const listarEventos = async () => {
     //const {data} = await listEventos();
-    const {data} = await listEventosAxios();
-    eventos.value = data
+    const response = await listEventosAxios();
+    console.log('response->', response)
+    eventos.value = response
 }
 
 //js arrow function
