@@ -1,5 +1,4 @@
-import {ref} from 'vue';
-export default function useReservaService (){
+export const useReservaService = () => {
     const evento = useState('evento',()=>{})
     
     function selecionarEvento(eventoSelecionado){
