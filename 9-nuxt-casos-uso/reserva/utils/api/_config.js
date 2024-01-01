@@ -40,6 +40,7 @@ export const useApi = () => {
         const { data } = err.response;
         return { success: false, status: data.status, body: data.body };
       } else {
+        console.log('erro NAO 409')
         return err;
       }
     }
