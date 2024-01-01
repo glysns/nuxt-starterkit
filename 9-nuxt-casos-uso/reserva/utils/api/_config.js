@@ -14,6 +14,7 @@ export const useApi = () => {
   api.interceptors.request.use(
     (req) => {
       waiting.value=true
+      console.log('req waiting', waiting.value)
       req.headers["Content-type"] = "application/json";
       if (req.url?.includes("public") || req.url?.includes("login"))
         console.log("rota publica");
@@ -32,6 +33,7 @@ export const useApi = () => {
   api.interceptors.response.use(
     (res) => {
       waiting.value=false;
+      console.log('res waiting', waiting.value)
       const { data } = res;
       return { success: true, status: data.status, body: data.body };
     },
