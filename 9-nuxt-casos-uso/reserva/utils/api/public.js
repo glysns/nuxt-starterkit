@@ -1,11 +1,11 @@
 export const usePublicApi = () => {
     const {api,waiting} = useApi();
 
-    const listEventos = async () => {
+    const listEventosFetch = async () => {
         return await useFetch(`https://iza-saas-api-production.up.railway.app/public/eventos`);
     }
 
-    const listEventosAxios = () => {
+    const listEventos = () => {
         return api.get(`/public/eventos`);
     }
 
@@ -13,6 +13,6 @@ export const usePublicApi = () => {
         waiting,
 
         listEventos,
-        listEventosAxios,
+        listEventosFetch
     }
 }

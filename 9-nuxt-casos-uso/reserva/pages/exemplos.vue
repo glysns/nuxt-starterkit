@@ -42,7 +42,7 @@ import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
-const { listEventos, listEventosAxios, waiting} = usePublicApi();
+const { listEventos, waiting} = usePublicApi();
 
 //No Caixa
 const espectador = ref('')
@@ -86,7 +86,7 @@ const eventos = ref ([])
 const listarEventos = async () => {
     //const {data} = await listEventos();
     console.log('vamos começar a requisição')
-    const {success, status, body } = await listEventosAxios();
+    const {success, status, body } = await listEventos();
     console.log('a requisição foi executada')
     eventos.value = [];
     if(!success)
