@@ -1,1 +1,3 @@
 Quando remove o arquivo app.vue e cria a pasta pages, o sistema de rotas automatica é habilitado
+
+npm install axios

@@ -1,14 +1,55 @@
+import axios from "axios";
 export const useApi = () => {
-    
-    const url = () => {
-        return Math.random().toString(36).substring(2, 15) +
-            Math.random().toString(36).substring(2, 15);
+  //const API_BASE_URL = 'http://localhost:8080'
+  //const API_BASE_URL = "https://iza-saas-api-production.up.railway.app/";
+  const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8080/";
+  
+  //const config = useRuntimeConfig()
+  //const API_BASE_URL = config.app.apiBaseUrl;
+  
+
+  const api = axios.create({
+    baseURL: API_BASE_URL,
+  });
+
+  api.interceptors.request.use(
+    (req) => {
+      console.log("request");
+      req.headers["Content-type"] = "application/json";
+      if (req.url?.includes("public") || req.url?.includes("login"))
+        console.log("rota publica");
+      else {
+        const token = localStorage.getItem("token");
+        req.headers["Authorization"] = token;
+      }
+      return req;
+    },
+    (err) => {
+      console.log("request - error");
+      return Promise.reject(err);
     }
-    
-    return {
-        url
+  );
+
+  api.interceptors.response.use(
+    (res) => {
+      const { data } = res;
+      return { success: true, status: data.status, body: data.body };
+    },
+    (err) => {
+      if (err.response.status == "409") {
+        console.log("business exception");
+        const { data } = err.response;
+        return { success: false, status: data.status, body: data.body };
+      } else {
+        return err;
+      }
     }
-}
+  );
+
+  return {
+    api,
+  };
+};
 
 /*
 
@@ -27,4 +68,3 @@ change      : PATCH     : Modifica um único atributo de um objeto
 delete      : DELETE    : Determina que o objeto não mais fará parte dos recursos disponíveis na aplicação
 
 */
-
