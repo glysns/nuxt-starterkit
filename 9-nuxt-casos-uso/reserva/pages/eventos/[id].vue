@@ -23,9 +23,10 @@ const cadastro = ref({
 });
 
 const confirmar = async () => {
-    confirmarReserva(cadastro)
-    //const {status, body} = await confirmarReserva(cadastro)
-    //console.log(body);
+    //confirmarReserva(cadastro)
+    const {status, body} = await confirmarReserva(cadastro)
+    console.log('status', status);
+    console.log('body', body);
 }
 </script>
   

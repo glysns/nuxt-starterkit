@@ -8,11 +8,15 @@ export const usePublicApi = () => {
     const listEventos = () => {
         return api.get(`/public/eventos`);
     }
+    const createReserva = (payload) => {
+        return api.post(`/public/eventos/reserva`, payload);
+    }
 
     return {
         waiting,
 
         listEventos,
-        listEventosFetch
+        listEventosFetch,
+        createReserva
     }
 }
