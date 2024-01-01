@@ -31,6 +31,7 @@
         <p/>
 
         LOADING ->: {{ loading }}
+        <h3 v-if="loading">Carregando ... </h3>
         <p/>
         {{ eventos }}
     </div>
@@ -41,10 +42,7 @@ import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
-
-const { loading} = useApi();
-
-const { listEventos, listEventosAxios} = usePublicApi();
+const { listEventos, listEventosAxios, loading} = usePublicApi();
 
 //No Caixa
 const espectador = ref('')

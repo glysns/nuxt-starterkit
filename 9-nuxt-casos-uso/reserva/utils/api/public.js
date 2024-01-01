@@ -1,6 +1,6 @@
 export const usePublicApi = () => {
-    const {api} = useApi();
-    
+    const {api,loading} = useApi();
+
     const listEventos = async () => {
         return await useFetch(`https://iza-saas-api-production.up.railway.app/public/eventos`);
     }
@@ -9,8 +9,10 @@ export const usePublicApi = () => {
         return api.get(`/public/eventos`);
     }
 
-    return { 
+    return {
+        loading,
+
         listEventos,
-        listEventosAxios
+        listEventosAxios,
     }
 }
