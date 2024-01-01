@@ -26,6 +26,10 @@
         <input v-model="cepId" />
         <button @click="chamarApiViaCep()">Consulta CEP</button>
         <p />{{ cep }}
+        <p/>
+        <button @click="listarEventos()">Listando os Eventos com AXIOS</button>
+        <p/>
+        {{ eventos }}
     </div>
 </template>
 
@@ -34,6 +38,8 @@ import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
+
+const { listEventos} = usePublicApi();
 
 //No Caixa
 const espectador = ref('')
@@ -71,6 +77,12 @@ const chamarApiViaCep = async () => {
     //const data = getCep(cepId.value);
     //console.log('cep->', data)
     cep.value = data
+}
+
+const eventos = ref ([])
+const listarEventos = async () => {
+    const {data} = await listEventos();
+    eventos.value = data
 }
 
 //js arrow function

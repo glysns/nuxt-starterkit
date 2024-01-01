@@ -1,14 +1,9 @@
-export const usePublicaApi = () => {
-    const getCep = async (id) => {
-        console.log('CEP RECEBIDO', id)
-        id = id.toString().replaceAll(/\D/g,'')
-        console.log('CEP TRANSFORMADO', id)
-        return await useFetch(`https://viacep.com.br/ws/${id}/json/`);
+export const usePublicApi = () => {
+    const listEventos = async () => {
+        return await useFetch(`https://iza-saas-api-production.up.railway.app/public/eventos`);
     }
 
-    return {
-        getCepMock,
-        getCep
-        
+    return { 
+        listEventos
     }
 }
