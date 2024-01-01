@@ -22,7 +22,10 @@
         <h4 @click="conferirIdade(18)">Função eAdulto com idade 18</h4>
         <h4 @click="logicaComplexa()">Função com lógica em +1 linha</h4>
         <h4 @click="gerarId()">Método utilizando uma função utilitária</h4>
-        <h4 @click="chamarApi()">Método utilizando uma função utilitária na sub pasta /utils/api</h4>
+        <label>CEP</label>
+        <input v-model="cepId" />
+        <h4 @click="chamarApiViaCep()">Método utilizando uma função utilitária na sub pasta /utils/api</h4>
+        {{ cep }}
     </div>
 </template>
 
@@ -30,13 +33,15 @@
 import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
-const { url} = useApi();
+const { getCep} = useViaCepApi();
 
 //No Caixa
 const espectador = ref('')
 
 //Na Fila
 const espectadores = ref([{ nome: 'Gleyson', assento: '11A' }, { nome: 'Izabelly', assento: '11B' }])
+
+const cepId = ref('')
 
 const dizerBemVindos = () => {
     digaBemVindos();
@@ -58,8 +63,9 @@ const gerarId = () => {
     alert('UUID = ' + uuid())
 }
 
-const chamarApi = () => {
-    alert('URL = ' + url())
+const chamarApiViaCep = async () => {
+    const {data:cep} = await getCep(cepId.value);
+    console.log(cep);
 }
 
 //js arrow function
