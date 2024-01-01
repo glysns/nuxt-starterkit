@@ -24,8 +24,8 @@
         <h4 @click="gerarId()">Método utilizando uma função utilitária</h4>
         <label>CEP</label>
         <input v-model="cepId" />
-        <h4 @click="chamarApiViaCep()">Método utilizando uma função utilitária na sub pasta /utils/api</h4>
-        {{ cep }}
+        <button @click="chamarApiViaCep()">Consulta CEP</button>
+        <p />{{ cep }}
     </div>
 </template>
 
@@ -41,7 +41,8 @@ const espectador = ref('')
 //Na Fila
 const espectadores = ref([{ nome: 'Gleyson', assento: '11A' }, { nome: 'Izabelly', assento: '11B' }])
 
-const cepId = ref('')
+const cepId = ref('64000-040')
+const cep = ref({})
 
 const dizerBemVindos = () => {
     digaBemVindos();
@@ -64,8 +65,12 @@ const gerarId = () => {
 }
 
 const chamarApiViaCep = async () => {
-    const {data:cep} = await getCep(cepId.value);
-    console.log(cep);
+    const {data} = await getCep(cepId.value);
+    console.log('data->cep', data)
+    
+    //const data = getCep(cepId.value);
+    //console.log('cep->', data)
+    cep.value = data
 }
 
 //js arrow function
