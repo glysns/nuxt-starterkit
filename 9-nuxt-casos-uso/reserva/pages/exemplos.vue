@@ -39,7 +39,7 @@ const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
 
-const { listEventos} = usePublicApi();
+const { listEventos, listEventosAxios} = usePublicApi();
 
 //No Caixa
 const espectador = ref('')
@@ -81,7 +81,8 @@ const chamarApiViaCep = async () => {
 
 const eventos = ref ([])
 const listarEventos = async () => {
-    const {data} = await listEventos();
+    //const {data} = await listEventos();
+    const {data} = await listEventosAxios();
     eventos.value = data
 }
 
