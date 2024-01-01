@@ -18,8 +18,8 @@
         <h4 @click="b()">Função B</h4>
         <h4 @click="c()">Função C</h4>
         <h4 @click="d('Gleyson')">Função D</h4>
-        <h4 @click="e('Izabelly')">Função E</h4>
-
+        <h4 @click="conferirIdade(16)">Função eAdulto com idade 16</h4>
+        <h4 @click="conferirIdade(18)">Função eAdulto com idade 18</h4>
     </div>
 </template>
 
@@ -42,15 +42,22 @@ const dizerBemVindo = () => {
 }
 
 const conferirIngresso = (espectador) => {
-    alert(`Seja Be-vindo ${espectador.nome}, seu assento é ${espectador.assento}`)
+    alert(`Seja Bem-vindo ${espectador.nome}, seu assento é ${espectador.assento}`)
 }
 
+const conferirIdade = (idade) => {
+    alert('Idade Adulta? ' + eAdulto(idade))
+}
+
+
+//js arrow function
+//https://www.youtube.com/watch?v=S5Mn0qQzJ-0
 const a = function() {
   alert("Hello World A!");
 }
 
 const b = () => {
-  //return "Hello World!";
+  //return "Hello World!"; implicito
   alert("Hello World B!");
 }
 
@@ -59,6 +66,10 @@ const c = () => alert("Hello World C!");;
 const d = (p) => alert("Hello " + p);
 
 const e = p => alert("Hello " + p);
+
+//const eAdulto = (idade) => idade >= 18;
+const eAdulto = idade => idade >= 18; //em caso de 1 parametro, parentese pode ser omitido
+
 
 </script>
 
