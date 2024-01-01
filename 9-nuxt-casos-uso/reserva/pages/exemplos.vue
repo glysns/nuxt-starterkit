@@ -29,6 +29,9 @@
         <p/>
         <button @click="listarEventos()">Listando os Eventos com AXIOS</button>
         <p/>
+
+        LOADING ->: {{ loading }}
+        <p/>
         {{ eventos }}
     </div>
 </template>
@@ -38,6 +41,8 @@ import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
+
+const { loading} = useApi();
 
 const { listEventos, listEventosAxios} = usePublicApi();
 
@@ -82,7 +87,9 @@ const chamarApiViaCep = async () => {
 const eventos = ref ([])
 const listarEventos = async () => {
     //const {data} = await listEventos();
+    console.log('vamos começar a requisição')
     const {success, status, body } = await listEventosAxios();
+    console.log('a requisição foi executada')
     eventos.value = [];
     if(!success)
         alert('erro')
