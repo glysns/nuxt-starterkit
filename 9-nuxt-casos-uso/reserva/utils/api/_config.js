@@ -1,22 +1,19 @@
 import axios from "axios";
 export const useApi = () => {
-  const loading = useState('loading',() => {return false}) 
+  const waiting = useState('waiting',() => {return false}) 
   //const API_BASE_URL = 'http://localhost:8080'
   //const API_BASE_URL = "https://iza-saas-api-production.up.railway.app/";
   //const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8080/";
-  
   const config = useRuntimeConfig()
   const API_BASE_URL = config.public.apiBase;
-  
+
   const api = axios.create({
     baseURL: API_BASE_URL,
   });
 
   api.interceptors.request.use(
     (req) => {
-      console.log("request");
-      loading.value=true
-      console.log('loading', loading.value)
+      waiting.value=true
       req.headers["Content-type"] = "application/json";
       if (req.url?.includes("public") || req.url?.includes("login"))
         console.log("rota publica");
@@ -34,12 +31,12 @@ export const useApi = () => {
 
   api.interceptors.response.use(
     (res) => {
-      loading.value=false;
+      waiting.value=false;
       const { data } = res;
       return { success: true, status: data.status, body: data.body };
     },
     (err) => {
-      loading.value=false;
+      waiting.value=false;
       if (err.response.status == "409") {
         console.log("business exception");
         const { data } = err.response;
@@ -53,7 +50,7 @@ export const useApi = () => {
 
   return {
     api,
-    loading
+    waiting
   };
 };
 

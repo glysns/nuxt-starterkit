@@ -30,8 +30,8 @@
         <button @click="listarEventos()">Listando os Eventos com AXIOS</button>
         <p/>
 
-        LOADING ->: {{ loading }}
-        <h3 v-if="loading">Carregando ... </h3>
+        WAITING ->: {{ waiting }}
+        <h3 v-if="waiting">Processando ... </h3>
         <p/>
         {{ eventos }}
     </div>
@@ -42,7 +42,7 @@ import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
 const { getCep} = useViaCepApi();
-const { listEventos, listEventosAxios, loading} = usePublicApi();
+const { listEventos, listEventosAxios, waiting} = usePublicApi();
 
 //No Caixa
 const espectador = ref('')
