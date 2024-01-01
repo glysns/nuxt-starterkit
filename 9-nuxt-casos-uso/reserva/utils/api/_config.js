@@ -2,12 +2,11 @@ import axios from "axios";
 export const useApi = () => {
   //const API_BASE_URL = 'http://localhost:8080'
   //const API_BASE_URL = "https://iza-saas-api-production.up.railway.app/";
-  const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8080/";
+  //const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:8080/";
   
-  //const config = useRuntimeConfig()
-  //const API_BASE_URL = config.app.apiBaseUrl;
+  const config = useRuntimeConfig()
+  const API_BASE_URL = config.app.apiBaseUrl;
   
-
   const api = axios.create({
     baseURL: API_BASE_URL,
   });
