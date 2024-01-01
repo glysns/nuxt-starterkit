@@ -3,7 +3,7 @@
         <h1>Eventos</h1>
         <ul>
             <li v-for="i in eventos">
-                <NuxtLink :to="`/eventos/${i.tag}`" @click="selecionarEvento(i)">
+                <NuxtLink :to="`/eventos/${i.id}`" @click="selecionarEvento(i)">
                     {{ i.id }} - {{ i.titulo }}
                 </NuxtLink>
             </li>
