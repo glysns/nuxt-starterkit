@@ -22,6 +22,7 @@
         <h4 @click="conferirIdade(18)">Função eAdulto com idade 18</h4>
         <h4 @click="logicaComplexa()">Função com lógica em +1 linha</h4>
         <h4 @click="gerarId()">Método utilizando uma função utilitária</h4>
+        <h4 @click="chamarApi()">Método utilizando uma função utilitária na sub pasta /utils/api</h4>
     </div>
 </template>
 
@@ -29,6 +30,7 @@
 import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
 const { uuid} = useIds();
+const { url} = useApi();
 
 //No Caixa
 const espectador = ref('')
@@ -54,6 +56,10 @@ const conferirIdade = (idade) => {
 
 const gerarId = () => {
     alert('UUID = ' + uuid())
+}
+
+const chamarApi = () => {
+    alert('URL = ' + url())
 }
 
 //js arrow function
