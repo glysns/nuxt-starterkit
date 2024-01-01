@@ -20,12 +20,15 @@
         <h4 @click="d('Gleyson')">Função D</h4>
         <h4 @click="conferirIdade(16)">Função eAdulto com idade 16</h4>
         <h4 @click="conferirIdade(18)">Função eAdulto com idade 18</h4>
+        <h4 @click="logicaComplexa()">Função com lógica em +1 linha</h4>
+        <h4 @click="gerarId()">Método utilizando uma função utilitária</h4>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 const { digaBemVindos, digaBemVindo } = useBoasVindas();
+const { uuid} = useIds();
 
 //No Caixa
 const espectador = ref('')
@@ -49,6 +52,9 @@ const conferirIdade = (idade) => {
     alert('Idade Adulta? ' + eAdulto(idade))
 }
 
+const gerarId = () => {
+    alert('UUID = ' + uuid())
+}
 
 //js arrow function
 //https://www.youtube.com/watch?v=S5Mn0qQzJ-0
@@ -70,6 +76,17 @@ const e = p => alert("Hello " + p);
 //const eAdulto = (idade) => idade >= 18;
 const eAdulto = idade => idade >= 18; //em caso de 1 parametro, parentese pode ser omitido
 
+const nRandom = () => Math.random(); //em caso de 1 parametro, parentese pode ser omitido
+
+const logicaComplexa = () => {
+    alert('alerta 01')
+    alert('alerta 02')
+
+    //return
+}; 
+
+//https://www.youtube.com/watch?v=S5Mn0qQzJ-0
+//estudar arraw function this + com classe
 
 </script>
 
