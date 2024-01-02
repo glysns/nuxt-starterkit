@@ -22,6 +22,41 @@
             <h3 v-if="waiting">Processando ... </h3>
             <button @click.prevent="confirmar()">Confirmar</button>
         </form>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Account Setting</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="acc-edit">
+                            <form>
+                                <div class="form-group">
+                                    <label for="uname">Nome:</label>
+                                    <input type="text" class="form-control" id="uname" v-model="cadastro.nome">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" v-model="cadastro.email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="uname">CPF:</label>
+                                    <input type="text" class="form-control" id="uname" v-model="cadastro.cpf">
+                                </div>
+                               
+                              
+                                <button class="btn btn-primary" >Submit</button>
+                                <button  class="btn iq-bg-danger">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
     </div>
 </template>
 
