@@ -1,3 +1,4 @@
+//https://i18n.nuxtjs.org/getting-started/basic-usage
 const datetimeFormats = {
     'en-US': {
         short: {
@@ -13,6 +14,9 @@ const datetimeFormats = {
         },
         time: {
             hour: 'numeric', minute: 'numeric'
+        },
+        duration: {
+          hour: 'numeric', minute: 'numeric'
         },
         dateTime: {
             year: 'numeric', month: 'numeric', day: 'numeric',
@@ -34,6 +38,9 @@ const datetimeFormats = {
         },
         time: {
             hour: 'numeric', minute: 'numeric'
+        },
+        duration: {
+          hour: 'numeric', minute: 'numeric'
         },
         dateTime: {
             year: 'numeric', month: 'numeric', day: 'numeric',
