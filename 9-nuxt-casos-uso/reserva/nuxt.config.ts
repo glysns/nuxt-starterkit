@@ -11,5 +11,15 @@ export default defineNuxtConfig({
     public: {
       apiBase: '', // can be overridden by NUXT_PUBLIC_API_BASE environment variable
     }
+  },
+  css: ['~/assets/css/main.min.css'],
+  app:{
+    head:{
+      script:[
+        {src:'/js/backend-bundle.min.js'},
+        {src:'/js/customizer.js'},
+        {src:'/js/app.js'}
+      ]
+    }
   }
 })
