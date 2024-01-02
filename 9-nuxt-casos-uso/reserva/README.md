@@ -5,3 +5,5 @@ npm install axios
 npm install @vuelidate/core @vuelidate/validators
 
 https://laracasts.com/discuss/channels/vue/nuxtjs-wont-load-my-javascript-files
+
+npm install @nuxtjs/i18n@next --save-dev
