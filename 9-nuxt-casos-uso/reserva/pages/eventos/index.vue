@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <p>{{ $t ('welcome') }}</p>
+        <p>{{ $d (new Date()) }}</p>
         <div class="row">
             <div class="col-lg-12">                
                 <div class="event-content">
@@ -13,7 +15,7 @@
                                                 <h4 class="mb-2 mr-4">{{i.id}}</h4> 
                                                 <h4 class="mb-2 mr-4">{{i.titulo}}</h4>
                                                 <h4 class="mb-2 mr-4">{{i.categoria}}</h4>
-                                                <h4 class="mb-2 mr-4">{{i.data}}</h4>
+                                                <h4 class="mb-2 mr-4">{{ $d (i.data)}}</h4>
                                                 <h4 class="mb-2 mr-4">{{i.hora}}</h4>
                                                 <h4 class="mb-2 mr-4">{{i.duracao}}</h4>
                                                 <h4 class="mb-2 mr-4">{{i.numeroDisponiveis}}/{{i.numeroVagas}}</h4>                                                 
